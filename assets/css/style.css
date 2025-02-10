@@ -15,3 +15,15 @@ nav a {
   padding: 15px;
   margin: 10px 0;
 }
+/* Tentang Saya */
+.education, .experience {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 5px;
+}
+
+/* Kontak */
+.contact-info {
+  line-height: 1.8;
+}
