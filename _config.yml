@@ -1,0 +1,9 @@
+title: Portofolio Ju5tHum4n
+baseurl: "/Portofolio"
+url: "https://ju5thum4n.github.io"
+theme: minima
+plugins:
+  - jekyll-feed
+collections:
+  projects:
+    output: true

@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+nav {
+  background: #2A5C7D;
+  padding: 10px;
+}
+nav a {
+  color: white;
+  margin-right: 15px;
+}
+.project {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+}
