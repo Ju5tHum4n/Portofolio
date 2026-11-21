@@ -40,12 +40,14 @@ h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
 section { padding: 96px 0; }
 .tint { background: var(--tint); }
 
-nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.93); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
+nav { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+nav .bar { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 14px; padding-bottom: 14px; }
 .logo { font-weight: 700; font-size: 1.15rem; color: var(--navy); text-decoration: none; }
-.menu { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+.menu { display: flex; gap: 24px; list-style: none; }
 .menu a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
 .menu a:hover, .menu a.on { color: var(--navy); border-color: var(--blue); }
+.burger, .tel, .menu li.cta-li, .scrim { display: none; }
+html.lock { overflow: hidden; }
 
 .btn { display: inline-block; padding: 11px 24px; border-radius: 8px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1.5px solid var(--navy); color: var(--navy); background: transparent; cursor: pointer; font-family: inherit; transition: background .2s, color .2s; }
 .btn:hover { background: var(--tint); }
@@ -132,8 +134,25 @@ nav .wrap { display: flex; justify-content: space-between; align-items: center; 
 footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .88rem; }
 
 @media (max-width: 820px) {
+    nav .bar { display: grid; grid-template-columns: 44px 1fr 44px; gap: 0; padding-top: 8px; padding-bottom: 8px; }
+    .logo { text-align: center; font-size: 1.1rem; }
+    .burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 0 10px; background: none; border: 0; cursor: pointer; }
+    .burger span { display: block; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .2s, opacity .2s; }
+    nav.open .burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    nav.open .burger span:nth-child(2) { opacity: 0; }
+    nav.open .burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .tel { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--blue); }
+    .tel svg { width: 24px; height: 24px; }
+    .menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: #fff; padding: 4px 24px 24px; border-bottom: 1px solid var(--line); max-height: calc(100vh - 62px); overflow-y: auto; box-shadow: 0 12px 24px rgba(15,27,45,.08); }
+    nav.open .menu { display: flex; }
+    .menu li { border-bottom: 1px solid var(--line); }
+    .menu a { display: block; padding: 18px 0; font-size: .95rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; border-bottom: 0; }
+    .menu a:hover, .menu a.on { border-bottom: 0; }
+    .menu li.cta-li { display: block; border: 0; margin-top: 20px; }
+    .menu li.cta-li a.btn { padding: 15px 24px; border-radius: 12px; font-size: 1rem; letter-spacing: 0; text-transform: none; text-align: center; color: #fff; }
+    .scrim.show { display: block; position: fixed; inset: 0; z-index: 15; background: rgba(15,27,45,.45); }
     section { padding: 68px 0; }
-    #home { min-height: 0; padding: 72vw 0 56px; background: linear-gradient(180deg, rgba(1,1,1,0) 52vw, #010101 72vw), url("foto-hero.jpg") top center / 100% auto no-repeat, #010101; }
+    #home { min-height: 0; padding: 68vw 0 56px; background: linear-gradient(180deg, rgba(1,1,1,0) 46vw, #010101 66vw), url("foto-hero.jpg") 40% -14vw / 130% auto no-repeat, #010101; }
     .about { grid-template-columns: 1fr; gap: 28px; }
     .skills, .contact { grid-template-columns: 1fr; }
     .case { padding: 24px 20px; }
@@ -145,19 +164,23 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 </head>
 <body>
 
-<nav>
-    <div class="wrap">
+<nav id="nav">
+    <div class="wrap bar">
+        <button class="burger" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
         <a href="#home" class="logo">Budi Maulana</a>
-        <ul class="menu">
+        <a href="#contact" class="tel" aria-label="Kontak"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+        <ul class="menu" id="menu">
             <li><a href="#about">Tentang</a></li>
             <li><a href="#experience">Pengalaman</a></li>
             <li><a href="#skills">Keahlian</a></li>
             <li><a href="#projects">Proyek</a></li>
             <li><a href="#writing">Tulisan</a></li>
             <li><a href="#contact">Kontak</a></li>
+            <li class="cta-li"><a href="#contact" class="btn fill">Hubungi saya</a></li>
         </ul>
     </div>
 </nav>
+<div class="scrim" id="scrim"></div>
 
 <main>
 <section id="home">
@@ -284,9 +307,9 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 <section id="writing" class="banner">
     <div class="wrap">
         <h2>Catatan &amp; tulisan</h2>
-        <p>Saya menulis untuk merapikan pikiran, seperti mendokumentasikan sebuah sistem: apa yang saya pelajari, bagaimana saya bekerja, dan hal-hal yang saya renungkan di sela rutinitas.</p>
-        <p>Sebagian saya terbitkan di blog, sisanya tetap menjadi catatan pribadi.</p>
-        <p class="src">Blog: Langkahku Dalam Menemukanmu</p>
+        <p>Di luar pekerjaan, saya menulis prosa pendek dan fragmen perjalanan. Tulisan-tulisan itu merangkai garis waktu dan perasaan, tentang perjalanan dan apa yang tertinggal darinya.</p>
+        <p>Nadanya tenang dan reflektif, lebih dekat ke prosa daripada catatan harian. Sebagian saya terbitkan di blog, sisanya masih saya simpan sendiri.</p>
+        <p class="src">Blog &middot; Langkahku Dalam Menemukanmu</p>
         <a href="https://maulana1012.blogspot.com/" target="_blank" rel="noopener" class="btn">Baca di blog</a>
     </div>
 </section>
@@ -334,8 +357,23 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
         });
     });
 
+    // Menu mobile (hamburger)
+    var nav = document.getElementById("nav"), burger = nav.querySelector(".burger"), scrim = document.getElementById("scrim");
+    function setMenu(open) {
+        nav.classList.toggle("open", open);
+        scrim.classList.toggle("show", open);
+        document.documentElement.classList.toggle("lock", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        burger.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+    }
+    burger.addEventListener("click", function () { setMenu(!nav.classList.contains("open")); });
+    scrim.addEventListener("click", function () { setMenu(false); });
+    document.querySelectorAll("#menu a, .tel").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+    window.addEventListener("resize", function () { if (window.innerWidth > 820) setMenu(false); });
+
     // Tandai menu aktif saat scroll
-    var secs = document.querySelectorAll("section[id]"), links = document.querySelectorAll(".menu a");
+    var secs = document.querySelectorAll("section[id]"), links = document.querySelectorAll(".menu a:not(.btn)");
     window.addEventListener("scroll", function () {
         var pos = window.scrollY + 120, cur = "";
         secs.forEach(function (s) { if (pos >= s.offsetTop) cur = s.id; });
