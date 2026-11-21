@@ -3,72 +3,64 @@
 ==========================================================================
  PORTOFOLIO BUDI MAULANA
 
- FOTO YANG HARUS KAMU SIMPAN
- Taruh file-file di bawah ini di FOLDER YANG SAMA dengan index.html.
- Nama file harus persis sama (huruf kecil). Kalau belum ada, halaman
- tetap tampil normal dengan warna pengganti.
+ FOTO: simpan di FOLDER YANG SAMA dengan index.html (nama harus persis)
+   1. foto-hero.jpg     Latar bagian atas (foto laptop). SUDAH DISIAPKAN.
+   2. foto-kerja.jpg    Fotomu saat bekerja, mendatar 4:3. Bagian "Tentang".
+   3. pemandangan.jpg   Latar bagian "Catatan & tulisan" (meja malam hari). SUDAH DISIAPKAN.
+ Kalau file belum ada, halaman tetap rapi dengan warna pengganti.
 
-   1. foto-hero.jpg     Foto dirimu yang LEBAR (mendatar), dengan ruang kosong
-                        di sisi kiri dan dirimu di sisi kanan. Dipakai sebagai
-                        latar bagian paling atas (di sebelah namamu).
-   2. foto-kerja.jpg    Foto saat bekerja atau suasana kerja, rasio mendatar (4:3).
-                        Dipakai di bagian "Tentang saya".
-   3. pemandangan.jpg   Foto pemandangan atau suasana tenang, mendatar dan lebar
-                        (minimal 1600 px). Dipakai sebagai latar bagian "Tulisan".
-
- Saran: ukuran masing-masing di bawah 500 KB supaya halaman cepat dibuka.
+ CATATAN
+   - Email & WhatsApp disimpan dalam bentuk base64 (atribut data-v). Untuk
+     mengganti: di Console browser ketik btoa("alamat-baru") lalu tempel hasilnya.
 ==========================================================================
 -->
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Budi Maulana | IT Support</title>
-<meta name="description" content="Portofolio Budi Maulana: IT Support, pengembang layanan SIEM dan SiteIntel, mahasiswa Teknik Informatika Universitas Indraprasta PGRI.">
+<title>Budi Maulana | Security Operations &amp; SIEM</title>
+<meta name="description" content="Budi Maulana: Security Operations, Endpoint dan SIEM Administration, anggota tim pengembang SiteIntel. Berangkat dari fondasi IT Support.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:wght@600;700&display=swap" rel="stylesheet">
 <style>
-:root { --navy: #0f2a4d; --blue: #1d4ed8; --tint: #eef4fd; --line: #d9e3f1; --text: #0f1b2d; --muted: #566377; --wine: #8a1c3c; --amber: #e8a33d; }
+:root { --navy: #0f2a4d; --blue: #1d4ed8; --tint: #eef4fd; --line: #d9e3f1; --text: #0f1b2d; --muted: #566377; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 70px; }
 body { font-family: Inter, system-ui, Arial, sans-serif; background: #fff; color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; border-top: 4px solid var(--navy); }
 a { color: inherit; }
-a:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-h1, h2, h3.serif { font-family: "Source Serif 4", Georgia, serif; }
+h1, h2, .logo { font-family: "Source Serif 4", Georgia, serif; }
 h1, h2 { font-weight: 700; color: var(--navy); line-height: 1.2; }
 h2 { font-size: 1.9rem; }
 h2::after { content: ""; display: block; width: 56px; height: 2px; background: var(--blue); margin: 14px 0 18px; }
-h3 { font-size: 1.05rem; font-weight: 600; color: var(--navy); }
-.sub { color: var(--muted); max-width: 58ch; margin-bottom: 40px; }
+h3 { font-size: 1.1rem; font-weight: 600; color: var(--navy); }
+.sub { color: var(--muted); max-width: 60ch; margin-bottom: 40px; }
+section { padding: 96px 0; }
+.tint { background: var(--tint); }
 
 nav { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.93); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 nav .wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; }
-.logo { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 1.15rem; color: var(--navy); text-decoration: none; }
+.logo { font-weight: 700; font-size: 1.15rem; color: var(--navy); text-decoration: none; }
 .menu { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
 .menu a { color: var(--muted); text-decoration: none; font-size: .92rem; font-weight: 500; padding: 4px 0; border-bottom: 2px solid transparent; }
 .menu a:hover, .menu a.on { color: var(--navy); border-color: var(--blue); }
 
-section { padding: 96px 0; }
-.tint { background: var(--tint); }
-
-/* Foto dengan warna pengganti bila file belum ada */
-.photo { position: relative; overflow: hidden; background: linear-gradient(135deg, #cfdcf0, var(--tint)); display: flex; align-items: center; justify-content: center; font-family: "Source Serif 4", Georgia, serif; font-size: 2.4rem; font-weight: 700; color: var(--navy); }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-
-/* Hero */
-#home { position: relative; display: flex; align-items: center; min-height: min(84vh, 680px); padding: 96px 0; color: #fff; background: linear-gradient(90deg, rgba(8,10,10,.72) 0%, rgba(8,10,10,.35) 40%, rgba(8,10,10,0) 65%), url("foto-hero.jpg") 85% top / cover no-repeat, #15171a; }
-#home .wrap { width: 100%; }
-.hero { max-width: 520px; }
-.hero h1 { color: #fff; font-size: clamp(2.6rem, 6.5vw, 4rem); letter-spacing: -.01em; }
-.role { margin-top: 12px; font-size: 1.15rem; color: #9db8ee; font-weight: 600; }
-.summary { margin-top: 24px; color: #d3dae6; max-width: 46ch; font-size: 1.05rem; }
-.cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-.btn { display: inline-block; padding: 11px 24px; border-radius: 8px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1.5px solid var(--navy); color: var(--navy); transition: background .2s, color .2s; }
+.btn { display: inline-block; padding: 11px 24px; border-radius: 8px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1.5px solid var(--navy); color: var(--navy); background: transparent; cursor: pointer; font-family: inherit; transition: background .2s, color .2s; }
 .btn:hover { background: var(--tint); }
 .btn.fill { background: var(--navy); color: #fff; }
 .btn.fill:hover { background: var(--blue); border-color: var(--blue); }
+
+/* Hero */
+#home { position: relative; overflow: hidden; display: flex; align-items: center; min-height: min(82vh, 680px); padding: 96px 0; color: #fff; background: linear-gradient(90deg, #010101 0%, #010101 34%, rgba(1,1,1,0) 60%), url("foto-hero.jpg") right center / auto 100% no-repeat, #010101; }
+#home .wrap { width: 100%; }
+.hero { max-width: 540px; }
+.hero h1 { color: #fff; font-size: clamp(2.6rem, 6.5vw, 4rem); letter-spacing: -.01em; }
+.role { margin-top: 12px; font-size: 1.15rem; color: #9db8ee; font-weight: 600; line-height: 1.4; }
+.origin { margin-top: 4px; color: #8e9bb0; font-size: .92rem; }
+.summary { margin-top: 24px; color: #d3dae6; font-size: 1.05rem; }
+.cta { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 #home .btn.fill { background: #fff; color: var(--navy); border-color: #fff; }
 #home .btn.fill:hover { background: var(--tint); }
 #home .btn:not(.fill) { color: #fff; border-color: rgba(255,255,255,.7); }
@@ -79,7 +71,8 @@ section { padding: 96px 0; }
 
 /* Tentang */
 .about { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
-.about .photo { aspect-ratio: 4/3; border-radius: 14px; }
+.photo { position: relative; overflow: hidden; width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; background: linear-gradient(135deg, #cfdcf0, var(--tint)); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: .85rem; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .about p { color: var(--muted); }
 .about p + p { margin-top: 16px; }
 
@@ -98,67 +91,54 @@ section { padding: 96px 0; }
 .box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 26px; }
 .box h3 { margin-bottom: 14px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { background: var(--tint); color: var(--navy); font-size: .85rem; padding: 4px 12px; border-radius: 99px; font-weight: 500; }
+.chip { background: var(--tint); color: var(--navy); font-size: .83rem; padding: 3px 12px; border-radius: 99px; font-weight: 500; }
 
-/* Proyek utama */
-.feature { background: var(--navy); color: #fff; border-radius: 20px; padding: 52px; margin-bottom: 24px; }
-.feature h3 { font-family: "Source Serif 4", Georgia, serif; color: #fff; font-size: 1.8rem; font-weight: 700; }
-.tagline { color: #a9bfe0; font-size: 1.02rem; margin-top: 4px; }
-.cols { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; margin-top: 30px; }
-.feature p { color: #c5d3e8; }
-.feature p + p { margin-top: 14px; }
-.feature h4 { font-size: .95rem; font-weight: 600; color: #fff; margin-bottom: 12px; }
-.checks { list-style: none; display: grid; gap: 8px; }
-.checks li { color: #c5d3e8; font-size: .93rem; padding-left: 20px; position: relative; line-height: 1.5; }
-.checks li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; background: var(--amber); transform: rotate(45deg); }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; border-top: 1px solid #2f4a74; counter-reset: s; }
-.steps div { padding: 20px 20px 0 0; counter-increment: s; }
-.steps b { display: block; color: #fff; font-weight: 600; font-size: .95rem; }
-.steps b::before { content: counter(s) ". "; color: var(--amber); }
-.steps span { color: #a9bfe0; font-size: .87rem; line-height: 1.5; display: block; margin-top: 4px; }
-.levels { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 34px; padding-top: 22px; border-top: 1px solid #2f4a74; font-size: .88rem; color: #c5d3e8; }
-.levels i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; }
-.note { margin-top: 20px; font-size: .82rem; color: #8fa6c8; }
+/* Proyek: tiga kartu dengan struktur sama */
+.cases { display: grid; gap: 24px; }
+.case { border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 14px; padding: 32px; background: #fff; }
+.case header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.case h3 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.4rem; }
+.tag { font-size: .82rem; color: var(--muted); }
+.case dl > div { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); }
+.case dt { font-size: .85rem; font-weight: 600; color: var(--blue); }
+.case dd { color: var(--muted); font-size: .96rem; }
+.case dd .chips { margin-top: 14px; }
+.case ol { margin: 10px 0 0 1.2em; }
+.case ol li { padding-left: 4px; }
+.case ol li + li { margin-top: 4px; }
+.case .note { font-size: .82rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; }
 
-/* Proyek kedua (versi terang) */
-.feature.light { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 14px; }
-.feature.light h3 { color: var(--navy); }
-.feature.light .tagline, .feature.light p, .feature.light .checks li { color: var(--muted); }
-.feature.light h4 { color: var(--navy); }
-.feature.light .checks li::before { background: var(--blue); }
-.feature.light .chips { margin-top: 26px; }
-
-.project { border: 1px solid var(--line); border-left: 4px solid var(--blue); border-radius: 12px; padding: 26px; }
-.project p { color: var(--muted); margin: 8px 0 14px; font-size: .95rem; max-width: 70ch; }
-
-/* Tulisan (bagian bernuansa sastra) */
-.banner { background: linear-gradient(rgba(15,42,77,.72), rgba(15,42,77,.78)), url("pemandangan.jpg") center/cover no-repeat, var(--navy); color: #fff; padding: 120px 0; text-align: center; }
-.banner .wrap { max-width: 680px; }
+/* Tulisan */
+.banner { background: linear-gradient(rgba(5,10,18,.5), rgba(5,10,18,.62)), url("pemandangan.jpg") 25% 62% / cover no-repeat, #050a12; color: #fff; padding: 112px 0; }
+.banner .wrap { max-width: 720px; }
 .banner h2 { color: #fff; }
-.banner h2::after { margin-left: auto; margin-right: auto; background: var(--amber); }
-.banner p { color: #d3deef; }
-.banner blockquote { font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-size: 1.6rem; line-height: 1.5; margin: 28px 0 6px; }
-.banner small { display: block; color: #a9bfe0; margin-bottom: 30px; }
-.banner .btn { background: #fff; color: var(--navy); border-color: #fff; }
+.banner h2::after { background: #e8a33d; }
+.banner p { color: #d9e2f0; }
+.banner p + p { margin-top: 12px; }
+.banner .src { font-size: .9rem; color: #aebcd3; }
+.banner .btn { margin-top: 26px; background: #fff; color: var(--navy); border-color: #fff; }
 .banner .btn:hover { background: var(--tint); }
 
 /* Kontak */
 .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.contact a, .contact div { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; text-decoration: none; }
-.contact a:hover { border-color: var(--blue); }
-.contact small { display: block; color: var(--muted); font-size: .82rem; }
-.contact b { color: var(--navy); font-weight: 600; word-break: break-word; }
+.c { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; display: flex; flex-direction: column; gap: 2px; }
+.c small { color: var(--muted); font-size: .82rem; }
+.c b, .c a { color: var(--navy); font-weight: 600; word-break: break-word; text-decoration: none; }
+.c a:hover { color: var(--blue); }
+.copy { align-self: flex-start; margin-top: 10px; font: 500 .8rem Inter, sans-serif; color: var(--blue); background: var(--tint); border: 0; border-radius: 6px; padding: 4px 12px; cursor: pointer; }
+.copy:hover { background: #dce8fb; }
+.nojs { margin-top: 14px; font-size: .88rem; color: var(--muted); }
 
 footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .88rem; }
 
 @media (max-width: 820px) {
     section { padding: 68px 0; }
-    #home { min-height: 0; align-items: flex-start; padding: 80vw 0 56px; background: linear-gradient(180deg, rgba(21,23,26,0) 52vw, #15171a 76vw), url("foto-hero.jpg") 88% top / 190% auto no-repeat, #15171a; }
-    .about, .cols { grid-template-columns: 1fr; gap: 32px; }
+    #home { min-height: 0; padding: 72vw 0 56px; background: linear-gradient(180deg, rgba(1,1,1,0) 52vw, #010101 72vw), url("foto-hero.jpg") top center / 100% auto no-repeat, #010101; }
+    .about { grid-template-columns: 1fr; gap: 28px; }
     .skills, .contact { grid-template-columns: 1fr; }
-    .feature { padding: 32px 24px; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .banner { padding: 80px 0; }
+    .case { padding: 24px 20px; }
+    .case dl > div { grid-template-columns: 1fr; gap: 4px; }
+    .banner { padding: 80px 0; background-position: 20% 62%; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 </style>
@@ -180,14 +160,13 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 </nav>
 
 <main>
-<!-- FOTO 1 (latar bagian atas): simpan sebagai foto-hero.jpg di folder yang sama dengan index.html.
-     Pakai foto LEBAR/mendatar: ruang kosong di kiri untuk nama, dirimu di kanan. -->
 <section id="home">
     <div class="wrap">
         <div class="hero">
             <h1>Budi Maulana</h1>
-            <p class="role">IT Support, PT. Vaksincom</p>
-            <p class="summary">Saya bekerja di bidang IT dan keamanan sistem. Fokus saya pada perlindungan endpoint, SIEM, dan penilaian risiko domain, sambil menempuh kuliah Teknik Informatika di Universitas Indraprasta PGRI.</p>
+            <p class="role">Security Operations &middot; Endpoint &amp; SIEM Administration</p>
+            <p class="origin">Berangkat dari fondasi IT Support, PT. Vaksincom</p>
+            <p class="summary">Saya membantu perusahaan mendeteksi ancaman lebih awal dan menutup celahnya sebelum menjadi insiden. Kini saya mengelola perlindungan endpoint dan SIEM, serta ikut membangun SiteIntel, layanan penilaian risiko berbasis domain.</p>
             <div class="cta">
                 <a href="#projects" class="btn fill">Lihat proyek</a>
                 <a href="#contact" class="btn">Hubungi saya</a>
@@ -202,12 +181,11 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 
 <section id="about" class="tint">
     <div class="wrap about">
-        <!-- FOTO 2: simpan sebagai foto-kerja.jpg di folder yang sama dengan index.html (rasio mendatar 4:3) -->
-        <div class="photo"><span>IT</span><img src="foto-kerja.jpg" alt="Budi Maulana saat bekerja" onerror="this.remove()"></div>
+        <div class="photo"><span>foto-kerja.jpg</span><img src="foto-kerja.jpg" alt="Budi Maulana saat bekerja" width="800" height="600" loading="lazy" decoding="async" onerror="this.remove()"></div>
         <div>
             <h2>Tentang saya</h2>
-            <p>Pekerjaan saya sehari-hari menjaga perangkat, jaringan, dan sistem perusahaan tetap berjalan aman. Saya berpengalaman mengelola antivirus, perlindungan endpoint (EDR, XDR, MDR), firewall, dan SIEM, serta mengintegrasikan sistem di Linux dan Windows.</p>
-            <p>Saya juga terbiasa menguji ketahanan sistem terhadap phishing dan brute force, dan tergabung dalam tim yang mengembangkan SiteIntel, layanan penilaian risiko berbasis domain.</p>
+            <p>Karier saya berangkat dari IT Support: menangani perangkat, jaringan, dan pengguna secara langsung. Fondasi itu membuat saya terbiasa melihat masalah dari dua sisi sekaligus, sistemnya dan orang yang memakainya.</p>
+            <p>Kini fokus saya di keamanan operasional: mengelola perlindungan endpoint (antivirus, EDR, XDR, MDR) dan SIEM, menguji ketahanan terhadap phishing dan brute force, serta ikut mengembangkan SiteIntel.</p>
         </div>
     </div>
 </section>
@@ -215,12 +193,12 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 <section id="experience">
     <div class="wrap">
         <h2>Pengalaman &amp; pendidikan</h2>
-        <p class="sub">Perjalanan saya dari bangku SMK sampai dunia kerja.</p>
+        <p class="sub">Dari bangku SMK sampai dunia kerja.</p>
         <div class="timeline">
             <div class="item">
                 <div class="when">Januari 2023 – sekarang <span class="now">Aktif</span></div>
-                <h3>IT Support</h3><div class="where">PT. Vaksincom, Jakarta</div>
-                <p>Menangani masalah perangkat keras, perangkat lunak, dan jaringan secara on-site maupun remote, mengelola perlindungan endpoint (antivirus, EDR, XDR, MDR) dan layanan SIEM, melatih pengguna setelah instalasi sistem, serta ikut mengembangkan SiteIntel.</p>
+                <h3>IT Support, Endpoint &amp; SIEM</h3><div class="where">PT. Vaksincom, Jakarta</div>
+                <p>Menangani perangkat keras, perangkat lunak, dan jaringan secara on-site maupun remote. Mengelola perlindungan endpoint (antivirus, EDR, XDR, MDR) dan layanan SIEM, melatih pengguna, serta ikut mengembangkan SiteIntel.</p>
             </div>
             <div class="item">
                 <div class="when">2024 – sekarang <span class="now">Masih berjalan</span></div>
@@ -246,7 +224,7 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
         <h2>Keahlian</h2>
         <p class="sub">Kemampuan yang saya asah di dunia kerja.</p>
         <div class="skills">
-            <div class="box"><h3>Keamanan sistem</h3><div class="chips"><span class="chip">SIEM</span><span class="chip">EDR / XDR / MDR</span><span class="chip">Antivirus</span><span class="chip">Firewall</span><span class="chip">Penilaian risiko domain</span><span class="chip">Uji phishing</span><span class="chip">Uji brute force</span></div></div>
+            <div class="box"><h3>Keamanan operasional</h3><div class="chips"><span class="chip">SIEM</span><span class="chip">EDR / XDR / MDR</span><span class="chip">Antivirus</span><span class="chip">Firewall</span><span class="chip">Penilaian risiko domain</span><span class="chip">Uji phishing</span><span class="chip">Uji brute force</span></div></div>
             <div class="box"><h3>Sistem &amp; jaringan</h3><div class="chips"><span class="chip">Windows</span><span class="chip">Linux</span><span class="chip">Troubleshooting</span><span class="chip">Konfigurasi jaringan</span><span class="chip">Integrasi sistem</span></div></div>
             <div class="box"><h3>Komunikasi</h3><div class="chips"><span class="chip">Pelatihan pengguna</span><span class="chip">Public speaking</span><span class="chip">Menulis</span></div></div>
         </div>
@@ -256,78 +234,59 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 <section id="projects">
     <div class="wrap">
         <h2>Proyek</h2>
-        <p class="sub">Pekerjaan yang pernah saya ikut kerjakan.</p>
+        <p class="sub">Masing-masing disusun dari masalah yang dihadapi, tindakan teknisnya, dan hasilnya. Detail yang menyangkut perusahaan dan klien dirahasiakan.</p>
+        <div class="cases">
 
-        <div class="feature">
-            <h3>SiteIntel</h3>
-            <p class="tagline">Laporan risiko keamanan siber dari satu nama domain.</p>
-            <div class="cols">
-                <div>
-                    <p>SiteIntel adalah layanan penilaian domain yang dikembangkan tim Vaksincom, dan saya tergabung di dalamnya. Dari satu nama domain, sistem memeriksa apa yang terlihat dari internet, lalu menyusunnya menjadi laporan yang bisa dibaca pemilik bisnis maupun tim IT.</p>
-                    <p>Setiap temuan disertai langkah perbaikan dan diurutkan dari yang paling mendesak. Pemeriksaannya pasif: hanya melihat informasi yang terbuka untuk publik, tanpa mencoba masuk ke sistem.</p>
-                </div>
-                <div>
-                    <h4>Yang diperiksa</h4>
-                    <ul class="checks">
-                        <li>Subdomain dan aset yang terlihat dari internet</li>
-                        <li>Layanan dan port yang terbuka</li>
-                        <li>Sertifikat SSL</li>
-                        <li>Keamanan email (SPF, DMARC, DKIM)</li>
-                        <li>Kebocoran data dan password yang tercuri</li>
-                        <li>Domain tiruan, reputasi malware, daftar hitam spam</li>
-                        <li>Pengaturan keamanan website dan celah (CVE) pada software</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="steps">
-                <div><b>Titik awal</b><span>Satu nama domain</span></div>
-                <div><b>Penemuan</b><span>Subdomain dan alamat IP dari data publik</span></div>
-                <div><b>Pengumpulan data</b><span>Layanan, sertifikat, email, kebocoran, reputasi</span></div>
-                <div><b>Penilaian</b><span>Dicocokkan dengan intelijen ancaman terkini</span></div>
-            </div>
-            <div class="levels">
-                <span><i style="background:var(--wine)"></i>Risiko tinggi</span>
-                <span><i style="background:var(--amber)"></i>Perlu diperiksa</span>
-                <span><i style="background:#6f8fc9"></i>Sudah baik</span>
-            </div>
-            <p class="note">Tampilan dan isi laporan bersifat rahasia dan hanya untuk pelanggan, sehingga tidak ditampilkan di sini.</p>
-        </div>
+            <article class="case">
+                <header><h3>SiteIntel</h3><span class="tag">Tim pengembang &middot; Vaksincom</span></header>
+                <dl>
+                    <div><dt>Masalah</dt><dd>Banyak perusahaan tidak tahu apa yang sebenarnya terlihat dari internet tentang domain mereka. Datanya tersebar di banyak sumber, penuh istilah teknis, dan sulit dijadikan keputusan oleh pemilik bisnis.</dd></div>
+                    <div><dt>Tindakan teknis</dt><dd>Ikut mengembangkan pemeriksaan pasif berlapis yang berangkat dari satu nama domain: penemuan subdomain dan aset, layanan terbuka, sertifikat, keamanan email, kebocoran data, domain tiruan, reputasi, sampai estimasi celah (CVE) dari versi software. Hasilnya dinilai dengan intelijen ancaman terkini, diberi tingkat risiko, lalu diurutkan menjadi prioritas perbaikan. Pemeriksaan sengaja dibuat pasif, tanpa mencoba masuk ke sistem klien, dan estimasi celah disertai catatan kemungkinan false positive.
+                        <div class="chips"><span class="chip">Passive recon</span><span class="chip">Attack surface</span><span class="chip">SPF / DMARC / DKIM</span><span class="chip">SSL</span><span class="chip">CVE</span><span class="chip">Threat intelligence</span></div></dd></div>
+                    <div><dt>Dampak</dt><dd>Satu laporan yang bisa dibaca pemilik bisnis sekaligus ditindaklanjuti tim IT: temuan terurut dari yang paling mendesak, masing-masing dengan langkah perbaikan yang konkret.</dd></div>
+                </dl>
+                <p class="note">Tampilan dan isi laporan bersifat rahasia, sehingga tidak ditampilkan di sini.</p>
+            </article>
 
-        <div class="feature light">
-            <h3>Layanan SIEM berbasis Wazuh</h3>
-            <p class="tagline">Dari instalasi bawaan menjadi layanan yang siap dipakai.</p>
-            <div class="cols">
-                <div>
-                    <p>Wazuh bawaan hanya memberi dasar. Tanpa aturan dan integrasi yang disiapkan sendiri, ia belum banyak berguna. Saya ikut membangun konfigurasi, aturan, dan integrasinya secara mandiri agar berjalan sebagai layanan SIEM di perusahaan.</p>
-                </div>
-                <div>
-                    <h4>Yang saya siapkan</h4>
-                    <ul class="checks">
-                        <li>Integrasi API VirusTotal untuk memeriksa file yang mencurigakan</li>
-                        <li>Pengiriman log dari berbagai perangkat lewat syslog</li>
-                        <li>Aturan deteksi kustom sesuai kebutuhan perusahaan</li>
-                        <li>Pengaturan fitur lain secara mandiri</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="chips"><span class="chip">Wazuh</span><span class="chip">VirusTotal API</span><span class="chip">Syslog</span><span class="chip">Linux</span></div>
-        </div>
+            <article class="case">
+                <header><h3>Layanan SIEM berbasis Wazuh</h3><span class="tag">Implementasi &middot; Vaksincom</span></header>
+                <dl>
+                    <div><dt>Masalah</dt><dd>Wazuh bawaan hanya menyediakan dasar. Tanpa aturan dan integrasi sendiri, log dari berbagai perangkat tidak terbaca dalam konteks perusahaan dan sulit dipakai untuk menemukan kejadian yang benar-benar penting.</dd></div>
+                    <div><dt>Tindakan teknis</dt><dd>Menyusun konfigurasi dan aturan deteksi kustom secara mandiri, mengintegrasikan API VirusTotal untuk memeriksa reputasi file yang mencurigakan, dan mengirim log dari berbagai perangkat lewat syslog ke satu platform, bersama pengaturan fitur lain sesuai kebutuhan.
+                        <div class="chips"><span class="chip">Wazuh</span><span class="chip">Custom rules</span><span class="chip">VirusTotal API</span><span class="chip">Syslog</span></div></dd></div>
+                    <div><dt>Dampak</dt><dd>Wazuh berkembang dari instalasi bawaan menjadi layanan SIEM yang berjalan di perusahaan: log terpusat, deteksi yang sesuai konteks sendiri, dan pemeriksaan reputasi file yang tidak lagi bergantung pada langkah manual.</dd></div>
+                </dl>
+                <p class="note">Detail konfigurasi dan data perusahaan bersifat rahasia.</p>
+            </article>
 
-        <div class="project">
-            <h3>Pengujian phishing dan brute force</h3>
-            <p>Menguji ketahanan sistem dan pengguna terhadap serangan, serta melacak penipuan lewat mobile banking.</p>
-            <div class="chips"><span class="chip">Phishing</span><span class="chip">Brute force</span></div>
+            <article class="case">
+                <header><h3>Pengujian phishing dan brute force</h3><span class="tag">Pengujian terotorisasi &middot; Vaksincom</span></header>
+                <dl>
+                    <div><dt>Masalah</dt><dd>Kontrol teknis saja tidak cukup. Celah paling sering datang dari pengguna yang terkecoh dan autentikasi yang lemah. Perusahaan perlu tahu seberapa tahan sistem dan penggunanya sebelum penyerang yang membuktikannya.</dd></div>
+                    <div><dt>Tindakan teknis</dt><dd>Alur kerja umum yang saya ikuti:
+                        <ol>
+                            <li>Menentukan lingkup dan mendapatkan izin tertulis.</li>
+                            <li>Menyusun skenario realistis: email phishing dan percobaan login berulang pada layanan yang disepakati.</li>
+                            <li>Menjalankan secara terkendali dan mencatat respons pengguna maupun sistem, termasuk apakah percobaan terdeteksi di log atau SIEM.</li>
+                            <li>Menganalisis hasil dan memetakan titik lemah.</li>
+                            <li>Menyampaikan rekomendasi, seperti edukasi pengguna, pembatasan percobaan login, dan penguatan autentikasi.</li>
+                        </ol>
+                        <div class="chips"><span class="chip">Phishing simulation</span><span class="chip">Brute force</span><span class="chip">Security awareness</span></div></dd></div>
+                    <div><dt>Dampak</dt><dd>Titik lemah pengguna dan sistem terpetakan dengan jelas dan menjadi bahan pelatihan serta perbaikan konfigurasi. Pengalaman yang sama saya gunakan untuk menelusuri kasus penipuan lewat mobile banking.</dd></div>
+                </dl>
+                <p class="note">Seluruh pengujian dilakukan dengan izin dan dalam lingkup yang disepakati.</p>
+            </article>
+
         </div>
     </div>
 </section>
 
-<!-- FOTO 3: simpan sebagai pemandangan.jpg di folder yang sama dengan index.html (lebar, mendatar, min. 1600 px) -->
 <section id="writing" class="banner">
     <div class="wrap">
         <h2>Catatan &amp; tulisan</h2>
-        <p>Tulisan pribadi tentang perasaan, perjalanan, dan hal-hal yang tak sempat dikatakan. Sebagian saya bagikan di blog, sisanya saya simpan sendiri.</p>
-        <blockquote>Langkahku Dalam Menemukanmu</blockquote>
-        <small>Nama blog saya</small>
+        <p>Saya menulis untuk merapikan pikiran, seperti mendokumentasikan sebuah sistem: apa yang saya pelajari, bagaimana saya bekerja, dan hal-hal yang saya renungkan di sela rutinitas.</p>
+        <p>Sebagian saya terbitkan di blog, sisanya tetap menjadi catatan pribadi.</p>
+        <p class="src">Blog: Langkahku Dalam Menemukanmu</p>
         <a href="https://maulana1012.blogspot.com/" target="_blank" rel="noopener" class="btn">Baca di blog</a>
     </div>
 </section>
@@ -335,29 +294,54 @@ footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted)
 <section id="contact">
     <div class="wrap">
         <h2>Kontak</h2>
-        <p class="sub">Ingin berdiskusi atau bekerja sama? Hubungi saya lewat salah satu cara berikut.</p>
+        <p class="sub">Terbuka untuk diskusi seputar security operations, SIEM, dan kolaborasi.</p>
         <div class="contact">
-            <a href="mailto:budimaulana1069@gmail.com"><small>Email</small><b>budimaulana1069@gmail.com</b></a>
-            <a href="https://wa.me/6289614067857" target="_blank" rel="noopener"><small>WhatsApp</small><b>+62 896-1406-7857</b></a>
-            <div><small>Lokasi</small><b>Bandung, Jawa Barat</b></div>
+            <div class="c"><small>Email</small><a id="mail" href="#" data-v="YnVkaW1hdWxhbmExMDY5QGdtYWlsLmNvbQ==">Memuat&hellip;</a><button class="copy" type="button" data-src="mail">Salin</button></div>
+            <div class="c"><small>WhatsApp</small><a id="wa" href="#" data-v="NjI4OTYxNDA2Nzg1Nw==" target="_blank" rel="noopener">Memuat&hellip;</a><button class="copy" type="button" data-src="wa">Salin</button></div>
+            <div class="c"><small>Lokasi</small><b>Jakarta, Indonesia</b></div>
         </div>
+        <noscript><p class="nojs">Aktifkan JavaScript untuk melihat email dan nomor WhatsApp, atau hubungi lewat LinkedIn di bagian atas halaman.</p></noscript>
     </div>
 </section>
 </main>
 
 <footer>
-    <div class="wrap">&copy; <span id="yr"></span> Budi Maulana</div>
+    <div class="wrap">&copy; <span id="yr">2026</span> Budi Maulana</div>
 </footer>
 
 <script>
-document.getElementById("yr").textContent = new Date().getFullYear();
-var secs = document.querySelectorAll("section[id]");
-var links = document.querySelectorAll(".menu a");
-window.addEventListener("scroll", function () {
-    var y = window.scrollY + 120, cur = "";
-    secs.forEach(function (s) { if (y >= s.offsetTop) cur = s.id; });
-    links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + cur); });
-});
+(function () {
+    // Tahun otomatis (teks "2026" di HTML hanya cadangan bila JS tidak jalan)
+    var y = document.getElementById("yr");
+    if (y) y.textContent = new Date().getFullYear();
+
+    // Kontak disamarkan: dibaca dari base64 hanya saat halaman dibuka di browser
+    function dec(s) { try { return atob(s); } catch (e) { return ""; } }
+    var m = document.getElementById("mail"), w = document.getElementById("wa");
+    var email = dec(m.getAttribute("data-v")), wa = dec(w.getAttribute("data-v"));
+    var waShow = "+" + wa.slice(0, 2) + " " + wa.slice(2, 5) + "-" + wa.slice(5, 9) + "-" + wa.slice(9);
+    m.textContent = email; m.href = "mailto:" + email;
+    w.textContent = waShow; w.href = "https://wa.me/" + wa;
+    var values = { mail: email, wa: waShow };
+
+    // Tombol salin
+    document.querySelectorAll(".copy").forEach(function (b) {
+        b.addEventListener("click", function () {
+            var txt = values[b.getAttribute("data-src")], old = b.textContent;
+            function ok() { b.textContent = "Tersalin"; setTimeout(function () { b.textContent = old; }, 1500); }
+            if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(txt).then(ok); }
+            else { var t = document.createElement("textarea"); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); ok(); } catch (e) {} t.remove(); }
+        });
+    });
+
+    // Tandai menu aktif saat scroll
+    var secs = document.querySelectorAll("section[id]"), links = document.querySelectorAll(".menu a");
+    window.addEventListener("scroll", function () {
+        var pos = window.scrollY + 120, cur = "";
+        secs.forEach(function (s) { if (pos >= s.offsetTop) cur = s.id; });
+        links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + cur); });
+    });
+})();
 </script>
 </body>
 </html>
